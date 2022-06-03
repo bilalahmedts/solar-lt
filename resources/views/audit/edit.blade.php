@@ -220,7 +220,7 @@
                 total_yes = total - total_no;
                 /* outcome = (total_yes / total) * 100; */
                 if (total_no > 0) {
-                    $("#outcome").val("Rejected");
+                    $("#outcome").val("Not Qualified");
                 } else {
                     $("#outcome").val("Qualified");
                 }

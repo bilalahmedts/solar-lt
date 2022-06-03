@@ -110,7 +110,7 @@
                                     @if ($audit->outcome == 'Qualified')
                                         <span class="badge bg-success">Qualified</span>
                                     @else
-                                        <span class="badge bg-danger">Rejected</span>
+                                        <span class="badge bg-danger">Not Qualified</span>
                                     @endif
                                 </td>
                                 <td>{{ $audit->created_at ?? 'N/A' }}</td>

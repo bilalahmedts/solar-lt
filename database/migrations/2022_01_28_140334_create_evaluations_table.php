@@ -15,7 +15,7 @@ class CreateEvaluationsTable extends Migration
     {
         Schema::create('evaluations', function (Blueprint $table) {
             $table->id();
-            $table->enum('outcome',['Qualified','Rejected']);
+            $table->enum('outcome',['Qualified','Not Qualified']);
             $table->string('notes');
             $table->string('customer_name');
             $table->integer('record_id');
