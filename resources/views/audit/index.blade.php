@@ -32,9 +32,7 @@
             if (isset($_GET['outcome'])) {
                 $outcome = $_GET['outcome'];
             }
-            if (isset($_GET['percentage'])) {
-                $percentage = $_GET['percentage'];
-            }
+
         @endphp
 
         <form action="{{ route('audit.index') }}" method="get" autocomplete="off">
@@ -57,14 +55,10 @@
                                 <label>Outcome</label>
                                 <select name="outcome" class="form-control select2">
                                     <option value="">Select Option</option>
-                                    <option value="accepted" @if ($outcome == 'accepted') @endif>Accepted</option>
-                                    <option value="rejected" @if ($outcome == 'rejected') @endif>Rejected</option>
+                                    <option value="Qualified" @if ($outcome == 'Qualified') @endif>Qualified</option>
+                                    <option value="Rejected" @if ($outcome == 'Rejected') @endif>Rejected</option>
                                 </select>
                             </div>
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="">Result</label>
-                            <input type="text" name="percentage" value="{{ $percentage }}" class="form-control">
                         </div>
                     </div>
                 </div>
