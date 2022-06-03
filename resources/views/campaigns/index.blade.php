@@ -39,7 +39,7 @@
                                 <td>{{ $camp->hrms_id ?? 'undefined' }}</td>
                                 <td>{{ $camp->name ?? 'undefined' }}</td>
                                 <td>
-                                    @if ($camp->status == 1)
+                                    @if ($camp->status == 'active')
                                         <span class="badge bg-success">Active</span>
                                     @else
                                         <span class="badge bg-danger">InActive</span>
