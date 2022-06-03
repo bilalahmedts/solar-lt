@@ -41,13 +41,13 @@
                             <label>Start Date</label>
                             <input type="text" class="form-control datetimepicker-input datepicker1"
                                 data-toggle="datetimepicker" data-target=".datepicker1" name="start_date"
-                                placeholder="Enter Start Date" value="{{ $start_date }}" required>
+                                placeholder="Enter Start Date" value="{{ $start_date }}">
                         </div>
                         <div class="col-sm-6">
                             <label>End Date</label>
                             <input type="text" class="form-control datetimepicker-input datepicker2"
                                 data-toggle="datetimepicker" data-target=".datepicker2" name="end_date"
-                                placeholder="Enter End Date" value="{{ $end_date }}" required>
+                                placeholder="Enter End Date" value="{{ $end_date }}">
                         </div>
                     </div>
                 </div>
@@ -72,7 +72,7 @@
                         <th>Record ID</th>
                         <th>Agent Name</th>
                         <th>Outcome</th>
-                        <th>Date</th>
+                        
                     </tr>
                 </thead>
                 <tbody>
@@ -89,7 +89,7 @@
                                         <span class="badge bg-danger">Rejected</span>
                                     @endif
                                 </td>
-                                    <td>{{ $audit->created_at ?? 'N/A' }}</td>
+                                    
                             </tr>
                         @endforeach
                     @else

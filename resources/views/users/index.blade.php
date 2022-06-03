@@ -10,7 +10,7 @@
     @endif
     <div class="search-area pt-2 pb-2">
         <div class="row">
-
+    
             <div class="col-md-6">
                 <h4 class="mb-0">Search</h4>
             </div>
@@ -20,44 +20,37 @@
                             class="fas fa-filter"></i></button>
                 </div>
             </div>
-
+    
         </div>
         @php
             $name = '';
             $email = '';
-            $status = '';
             
+    
             if (isset($_GET['name'])) {
-                $name = $_GET['name'];
+            $name = $_GET['name'];
             }
             if (isset($_GET['email'])) {
-                $email = $_GET['email'];
+            $email = $_GET['email'];
             }
-            if (isset($_GET['status'])) {
-                $status = $_GET['status'];
-            }
+    
+    
         @endphp
-
+    
         <form action="{{ route('users.index') }}" method="get" autocomplete="off">
             <input type="hidden" name="search" value="1">
-            <div class="card card-primary card-outline mt-3" id="search" @if (!isset($_GET['search'])) style="display: none;" @endif>
+            <div class="card card-primary card-outline mt-3" id="search" @if (!isset($_GET['search']))
+                style="display: none;" @endif>
                 <div class="card-body">
                     <div class="row">
                         <div class="form-group col-md-4">
                             <label for="">Employee Name</label>
                             <input type="text" name="name" value="{{ $name }}" class="form-control">
                         </div>
-
+    
                         <div class="form-group col-md-4">
                             <label for="">Email Address</label>
                             <input type="text" name="email" value="{{ $email }}" class="form-control">
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label>Select Status</label>
-                            <select name="status" class="form-control select2" required>
-                                <option value="1" @if ($status == 1) selected @endif>Active</option>
-                                <option value="0" @if ($status == 0) selected @endif>Inactive</option>
-                            </select>
                         </div>
                     </div>
                 </div>
@@ -67,7 +60,7 @@
                 </div>
             </div>
         </form>
-
+    
     </div>
     <div class="card card-primary card-outline">
         <div class="card-header">
@@ -96,7 +89,7 @@
                                 <td>{{ $user->email ?? 'undefined' }}</td>
                                 <td>{{ $user->roles[0]->name ?? '-' }}</td>
                                 <td>
-                                    @if ($user->status == 1)
+                                    @if ($user->status == 'active')
                                         <span class="badge bg-success">Active</span>
                                     @else
                                         <span class="badge bg-danger">InActive</span>
