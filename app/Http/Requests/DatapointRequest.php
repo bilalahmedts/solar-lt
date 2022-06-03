@@ -24,12 +24,10 @@ class DatapointRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            'name' => 'required|alpha|unique:datapoints',
-            'question' => 'required|unique:datapoints',
+            'name' => 'required|unique:datapoints',
         ];
         if ($this->getMethod() == "PUT") {
-            $rules['name'] = 'required|alpha|unique:datapoints,name,' . $this->datapoint->id;
-            $rules['question'] = 'required|unique:datapoints,question,' . $this->datapoint->id;
+            $rules['name'] = 'required|unique:datapoints,name,' . $this->datapoint->id;
         }
         return $rules;
     }
