@@ -24,7 +24,7 @@ class AuthRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            'email' => 'required|unique:users',
+            'email' => 'required',
             'password' => 'required|alpha_num'
         ];
         return $rules;

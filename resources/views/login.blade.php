@@ -21,6 +21,11 @@
           <div class="card-header text-center">
             <img src="{{ asset('img/logo.png') }}" width="100%" class="img-responsive" alt="Logo">
           </div>
+          @if($errors->has('email'))
+    @foreach ($errors->all() as $error)
+        <div>{{ $error }}</div>
+    @endforeach
+@endif
           <div class="card-body">
             <p class="login-box-msg">Sign in to start your session</p>
       
