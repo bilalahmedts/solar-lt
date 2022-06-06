@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Login - {{ env('APP_NAME') }}</title>
-
+  <link rel="icon" href="{{ asset('img/touchstone-icon.jpg') }}" type="image/x-icon">
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
@@ -21,11 +21,6 @@
           <div class="card-header text-center">
             <img src="{{ asset('img/logo.png') }}" width="100%" class="img-responsive" alt="Logo">
           </div>
-          @if($errors->has('email'))
-    @foreach ($errors->all() as $error)
-        <div>{{ $error }}</div>
-    @endforeach
-@endif
           <div class="card-body">
             <p class="login-box-msg">Sign in to start your session</p>
       
