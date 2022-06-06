@@ -25,6 +25,7 @@
         @php
             $name = '';
             $email = '';
+            $campaign_id = -1;
             
     
             if (isset($_GET['name'])) {
@@ -33,8 +34,10 @@
             if (isset($_GET['email'])) {
             $email = $_GET['email'];
             }
-    
-    
+            if(!empty($_GET['campaign_id'])){
+                    $campaign_id = $_GET['campaign_id'];
+            }
+
         @endphp
     
         <form action="{{ route('users.index') }}" method="get" autocomplete="off">
@@ -51,6 +54,15 @@
                         <div class="form-group col-md-4">
                             <label for="">Email Address</label>
                             <input type="text" name="email" value="{{ $email }}" class="form-control">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="">Campaign</label>
+                            <select name="campaign_id" id="campaign_id" class="form-control select2">
+                                <option value="">Select Option</option>
+                                @foreach ($campaigns as $campaign)
+                                    <option value="{{ $campaign->id }}" @if($campaign->id == $campaign_id) selected @endif>{{ $campaign->name }}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -75,6 +87,7 @@
                     <tr>
                         <th>@sortablelink('name', 'Name')</th>
                         <th>@sortablelink('email', 'Email')</th>
+                        <th>Campaign</th>
                         <th>Role</th>
                         <th>Status</th>
                         <th>Action</th>
@@ -85,8 +98,9 @@
 
                         @foreach ($users as $user)
                             <tr>
-                                <td>{{ $user->name ?? 'undefined' }}</td>
-                                <td>{{ $user->email ?? 'undefined' }}</td>
+                                <td>{{ $user->name ?? '-' }}</td>
+                                <td>{{ $user->email ?? '-' }}</td>
+                                <td>{{ $user->campaign->name ?? '-' }}</td>
                                 <td>{{ $user->roles[0]->name ?? '-' }}</td>
                                 <td>
                                     @if ($user->status == 'active')
