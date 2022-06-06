@@ -18,6 +18,7 @@
                 </p>
             </a>
         </li>
+        @if (in_array(Auth::user()->roles[0]->name, ['Super Admin','Director','Manager','Team Lead']))
         <li class="nav-item">
             <a href="{{ route('voice-evaluations.index') }}" class="nav-link">
                 <i class="nav-icon far fa fa-check"></i>
@@ -35,6 +36,7 @@
                 </p>
             </a>
         </li>
+        @endif
         @if (in_array(Auth::user()->roles[0]->name, ['Super Admin']))
         <li class="nav-header">SETTINGS</li>
         <li class="nav-item">
