@@ -25,7 +25,6 @@
         @php
             $user_id = '';
             $outcome = '';
-            $percentage = '';
             if (isset($_GET['user_id'])) {
                 $user_id = $_GET['user_id'];
             }
@@ -92,7 +91,9 @@
                         <th>Call Duration</th>
                         <th>Outcome</th>
                         <th>Call Date</th>
+                        @if ((in_array(Auth::user()->roles[0]->name, ['Super Admin','Director','Manager', 'Team Lead'])))
                         <th>Action</th>
+                        @endif
                     </tr>
                 </thead>
                 <tbody>
@@ -115,10 +116,14 @@
                                 </td>
                                 <td>{{ $audit->created_at ?? 'N/A' }}</td>
                                 <td>
+                                    @if ((in_array(Auth::user()->roles[0]->name, ['Super Admin','Director','Manager', 'Team Lead'])))
                                     <a href="{{ route('audit.edit', $audit) }}" class="btn btn-primary btn-sm"><i
                                             class="fas fa-edit"></i></a>
+                                    @endif
+                                    @if ((in_array(Auth::user()->roles[0]->name, ['Super Admin'])))
                                     <a href="{{ route('audit.destroy', $audit) }}" class="btn btn-primary btn-sm"><i
                                                 class="fas fa-trash"></i></a>
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach
